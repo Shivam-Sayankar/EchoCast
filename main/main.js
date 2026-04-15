@@ -1,5 +1,6 @@
 console.log("Hare Krishna!")
 
+require('electron-reloader')(module);
 const { app, BrowserWindow, ipcMain, Menu } = require('electron')
 const path = require('node:path')
 
