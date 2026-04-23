@@ -1,10 +1,16 @@
 # EchoCast
 
+## Getting Started
+
+```
+git clone https://github.com/Shivam-Sayankar/EchoCast.git
+```
+
 ## Setup
 
 ```bash
 npm install
-npm run start
+npm start
 ```
 
 ## Structure
@@ -19,7 +25,11 @@ echo/
 │   └── preload.js
 ├── renderer/
 │   ├── index.html
-│   └── app.js
+│   ├── app.js
+│   ├── style.css
+│   └── assets/
+│       ├── fonts/
+│       └── images/
 ├── core/
 │   └── network/
 ├── package.json
@@ -31,3 +41,7 @@ echo/
 - UI
 - Networking
 - Capture
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines/
