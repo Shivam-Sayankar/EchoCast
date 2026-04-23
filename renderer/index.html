@@ -4,20 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EchoCast</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <h1>E C H O</h1>
-    
-    <button id="host-btn">Start Hosting</button>
+<body class="">
 
-    <br><br>
+    <div id="home-view" class="view">
+        <div class="container">
 
-    <input type="text" id="ip-input" placeholder="Enter IP Address">
-    <button id="join-btn">Join Session</button>
-
-    <br><br>
-
-    <p>Status: <span id="status"></span></p>
+            <div class="title-container">
+                <div class="heading">ECHOCAST</div>
+                <div class="sub-heading">Turn any screen into a monitor</div>
+            </div>
+            
+            <div class="content">
+                <div class="content-heading">Select mode</div>
+                <div class="mode-options">
+                    <div id="mode-mirror-screen" class="mode">
+                        <div class="mode-name">Mirror/Broadcast screen</div>
+                        <div class="mode-info">
+                            <div class="mode-image" id="screen-mirror-illustration"></div>
+                            <div class="mode-description">Mirror the contents <br> of your display</div>
+                        </div>
+                    </div>
+                    <div id="mode-extend-screen" class="mode">
+                        <div class="mode-name">Extend Screen</div>
+                        <div class="mode-info">
+                            <div class="mode-image" id="screen-extend-illustration"></div>
+                            <div class="mode-description">Extend your display, <br>move the content across</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-bar">
+                    <div class="device-info">
+                        Device:<span id="device-name">&ThinSpace;HP Victus</span>
+                    </div>
+                    <button id="settings-btn">
+                        <img src="" alt="" id="settings-icon">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="app.js"></script>
 </body>

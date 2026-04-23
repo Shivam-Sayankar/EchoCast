@@ -1,0 +1,223 @@
+@font-face {
+  font-family: "Inter";
+  src: url("./assets/fonts/inter/Inter-VariableFont_opsz\,wght.ttf")
+    format("truetype-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("./assets/fonts/inter/Inter-Italic-VariableFont_opsz\,wght.ttf")
+    format("truetype-variations");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: block;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* border: 1px solid rgba(255, 255, 255, 0.2); */
+  font-family: "Inter";
+  user-select: none;
+}
+
+:root {
+  --bg-dark: hsl(0 0 5%);
+  --bg: hsl(0 0 10%);
+  --bg-light: hsl(0 0 15%);
+  --bg-lighter: hsl(0 0 30%);
+  --text: hsl(0, 0%, 90%);
+  --text-muted: hsl(0 0 65%);
+  --border: hsl(0 0 25%);
+  --primary: hsl(199, 100%, 80%);
+  --primary-muted: hsl(199, 71%, 25%);
+  --primary-light: hsl(200, 39%, 51%);
+  --primary-shadow: hsla(200, 39%, 61%, 0.4);
+
+  --screen-mirror-illustration: url("./assets/images/screen-mirror-dark.svg");
+  --screen-extend-illustration: url("./assets/images/screen-extend-dark.svg");
+  --settings-icon: url("./assets/images/settings-dark.svg");
+}
+
+body.light {
+  --bg-dark: hsl(0 0 85%);
+  --bg: hsl(0 0 90%);
+  --bg-light: hsl(0 0 95%);
+  --bg-lighter: hsl(0 0 100%);
+  --text: hsl(0, 0%, 5%);
+  --text-muted: hsl(0 0 30%);
+  --primary-shadow: hsla(200, 39%, 61%, 0.9);
+
+  --screen-mirror-illustration: url("./assets/images/screen-mirror-light.svg");
+  --screen-extend-illustration: url("./assets/images/screen-extend-light.svg");
+  --settings-icon: url("./assets/images/settings-light.svg");
+}
+
+body {
+  background-color: var(--bg-dark);
+}
+
+.view {
+  display: block;
+  height: 100vh;
+  width: 100vw;
+  padding: 25px;
+}
+
+.hidden {
+  display: none;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  background-color: var(--bg);
+  border-radius: 10px;
+}
+
+.title-container {
+  margin: 20px auto 20px auto;
+  text-align: center;
+}
+
+.heading {
+  color: var(--text);
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.sub-heading {
+  color: var(--text-muted);
+}
+
+.content {
+  flex: auto;
+  margin: 0 20px 20px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+  background-color: var(--bg-light);
+  border-radius: 10px;
+}
+
+.content-heading {
+  color: var(--text);
+  font-size: 1.1rem;
+}
+
+.mode-options {
+  display: flex;
+  gap: 20px;
+}
+
+.mode {
+  height: 35vh;
+  width: 35vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 15px;
+  padding: 10px;
+  gap: 10px;
+  background-color: var(--primary-light);
+
+  transition:
+    background-color 0.3s ease-in,
+    transform 0.3s ease;
+}
+
+.mode:hover {
+  background-color: var(--primary-muted);
+  box-shadow: 0 5px 20px var(--primary-shadow);
+  color: var(--primary);
+}
+
+.mode:active {
+  transform: translateY(2px) scale(0.99);
+}
+
+.mode-name {
+  margin: 5px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.mode-info {
+  /* margin: 10px; */
+  background-color: var(--bg-lighter);
+  background-color: var(--primary-light);
+  color: var(--bg-light);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  gap: 10px;
+}
+
+.mode-image {
+  height: 40%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#screen-mirror-illustration {
+  background-image: var(--screen-mirror-illustration);
+}
+
+#screen-extend-illustration {
+  background-image: var(--screen-extend-illustration);
+}
+
+.bottom-bar {
+  display: flex;
+  width: calc(70vw + 20px);
+  justify-content: space-between;
+  padding: 15px 25px;
+  color: var(--text-muted);
+  background-color: var(--bg);
+  border-radius: 10px;
+}
+
+.device-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#settings-btn {
+  padding: 5px;
+  background-color: var(--bg-light);
+  border: none;
+  border-radius: 5px;
+  aspect-ratio: 1/1;
+
+  transition-duration: 0.3s;
+}
+
+#settings-icon {
+  content: var(--settings-icon);
+  width: 25px;
+  height: 100%;
+}
+
+#settings-btn:hover {
+  box-shadow: 0 2px 15px var(--primary-shadow);
+}
+
+#settings-btn:active {
+  transform: scale(0.9);
+}
