@@ -46,6 +46,58 @@
         </div>
     </div>
 
+    <div id="settings-view" class="view hidden">
+        <div class="container settings-container">
+
+            <div class="title-container">
+                <button class="back-btn" id="settings-view-back-btn">
+                    <img src="" alt="" id="back-icon">
+                </button>
+                <div class="heading">Settings</div>
+            </div>
+
+
+            <div class="content" id="settings-content">
+
+                <div class="setting-category">
+                    <div class="settings-category-title">Appearance</div>
+                    <hr class="setting-cat-hr">
+                    <div class="settings-options">
+                        <label for="" class="setting-label">Theme</label>
+
+                        <div class="radio-group">
+                            <input type="radio" name="theme" id="dark" value="dark" checked>
+                            <label for="dark">Dark</label>
+                        </div>
+
+                        <div class="radio-group">
+                            <input type="radio" name="theme" id="light" value="light">
+                            <label for="light">Light</label>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                
+
+                <div class="setting-category" id="settings-actionables">
+                    <!-- <div class="settings-category-title">Appearance</div>
+                    <hr class="setting-cat-hr">
+                    <div class="settings-options">
+                        <label for="theme">Theme</label>
+                        <input type="radio" name="" id="theme">
+                    </div> -->
+                    <button id="save-changes-btn" class="settings-view-btn">Apply Settings</button>
+                    <button id="restore-settings-btn" class="settings-view-btn">Restore Defaults</button>
+                </div>
+
+                
+            </div>
+            
+
+        </div>
+    </div>
+
     <script src="app.js"></script>
 </body>
 </html>

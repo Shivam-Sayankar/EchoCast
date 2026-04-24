@@ -1,17 +1,18 @@
 
-const hostButton = document.getElementById('host-btn')
-const joinButton = document.getElementById('join-btn')
-const ipInput = document.getElementById('ip-input')
-const statusDisplay = document.getElementById('status')
+const homeView = document.getElementById('home-view')
+const settingsView = document.getElementById('settings-view')
 
-hostButton.addEventListener('click', () => {
-    window.electronAPI.startHosting()
+const settingsBtn = document.getElementById("settings-btn")
+const backBtnSettingsView = document.getElementById('settings-view-back-btn')
+
+
+settingsBtn.addEventListener('click', () => {
+    // alert('Settings Button Clicked')
+    homeView.classList.toggle('hidden')
+    settingsView.classList.toggle('hidden')
 })
 
-joinButton.addEventListener('click', () => {
-    window.electronAPI.joinSession(ipInput.value)
-})
-
-window.electronAPI.onStatusUpdate((status) => {
-    statusDisplay.innerText = status
+backBtnSettingsView.addEventListener('click', () => {
+    homeView.classList.toggle('hidden')
+    settingsView.classList.toggle('hidden')
 })
