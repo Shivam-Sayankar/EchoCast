@@ -64,20 +64,28 @@ body {
 }
 
 .view {
-  display: block;
   height: 100vh;
   width: 100vw;
-  padding: 20px;
+  /* padding: 20px; */
 
-  /* transition: opacity 0.4s ease-in-out;
-  opacity: 1; */
+  /* Making the transition smooth */
+  display: block;
+  transition:
+    opacity 0.5s ease-in-out,
+    display 0.5s;
+  opacity: 1;
+  /* transition-behavior: allow-discrete; */
 }
 
 .hidden {
   display: none;
+  opacity: 0;
+}
 
-  /* opacity: 0;
-  pointer-events: none; */
+@starting-style {
+  .view {
+    opacity: 0;
+  }
 }
 
 .container {
@@ -86,7 +94,7 @@ body {
   flex-direction: column;
   height: 100%;
   background-color: var(--bg);
-  border-radius: 10px;
+  /* border-radius: 10px; */
 }
 
 .title-container {
@@ -232,7 +240,6 @@ body {
 }
 
 /* SETTINGS PAGE STYLING */
-
 #settings-content {
   padding: 20px;
   display: grid;
@@ -276,8 +283,8 @@ body {
 
 .back-btn {
   position: absolute;
-  left: 40px;
-  top: 35px;
+  left: 20px;
+  top: 15px;
   display: flex;
   padding: 10px;
 }
@@ -302,7 +309,7 @@ body {
   padding: 10px 20px;
   border-radius: 10px;
   flex: auto;
-  border: 1px solid var(--bg-light);
+  border: 2px solid var(--bg-light);
   background-color: var(--bg-light);
   color: var(--text);
 
@@ -310,13 +317,16 @@ body {
 }
 
 .settings-view-btn:hover {
-  border-color: var(--primary-muted);
   background-color: var(--primary-muted);
   color: var(--primary);
   /* box-shadow: 0 0px 5px var(--text-muted); */
-  border: 1px solid var(--primary-light);
+  border: 2px solid var(--primary-light);
 }
 
 .settings-view-btn:active {
   transform: scale(0.95) translateY(2px);
+}
+
+input[type="radio"] {
+  accent-color: var(--primary);
 }

@@ -7,5 +7,8 @@ contextBridge.exposeInMainWorld('electronAPI', {
         ipcRenderer.on('status-update', (event, message) => {
             callback(message)
         })
-    }
+    },
+    getSettings: () => ipcRenderer.invoke('get-settings'),
+    updateSettings: (settings) => ipcRenderer.invoke('update-settings', settings),
+    resetSettings: () => ipcRenderer.invoke('reset-settings')
 })

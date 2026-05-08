@@ -3,6 +3,7 @@ console.log("Hare Krishna!")
 require('electron-reloader')(module);
 const { app, BrowserWindow, ipcMain, Menu } = require('electron')
 const path = require('node:path')
+const settingsManager = require('./settings/settingsManager.js')
 
 // Import IPC handlers
 require('./ipc/handlers')
@@ -30,7 +31,9 @@ const createWindow = () => {
 
 
 
-app.whenReady().then(() => {
+app.whenReady().then(async () => {
+    await settingsManager.initializeSettings()
+
     createWindow()
 
     // Open a window if none are open (MacOS) - darwin
