@@ -47,6 +47,64 @@
         </div>
     </div>
 
+    <div id="extend-screen-setup-view" class="view hidden">
+        <div class="container">
+            
+            <div class="title-container">
+                <button class="back-btn" id="extend-screen-setup-back-btn">
+                    <img src="" alt="" id="back-icon">
+                </button>
+                <div class="heading">Extend Your Screen</div>
+                <!-- <div class="sub-heading">Use another device as a secondary monitor</div> -->
+                <button class="info-btn" id="extend-screen-info-btn">
+                    <img src="" alt="" class="info-btn-icon">
+                </button>
+            </div>
+
+            <div class="content" id="extend-screen-setup-content">
+                <div class="extend-screen-content-section">
+                    <div class="content-section-heading">Setup Virtual Display</div>
+
+                    <div class="setup-option-group">
+                        <div class="setup-option-title">Resolution</div>
+                        <select name="" id="virtual-display-resolution-input">
+                            <option value="1920x1080">1920x1080</option>
+                            <option value="1280x720">1280x720</option>
+                        </select>
+                    </div>
+
+                    <div class="setup-option-group" id="virtual-display-status-text">
+                        <span>Status:</span>
+                        <span id="virtual-display-status">Virtual Display Not Created</span>
+                    </div>
+
+                    <div class="setup-option-group">
+                        <button id="create-virtual-display-btn" class="action-btn">Create Virtual Display</button>
+                    </div>
+                </div>
+                <div class="extend-screen-content-section">
+                    <div class="content-section-heading">Preview</div>
+
+                    <div class="preview-window" id="virtual-display-preview"></div>
+
+                    <div class="links-section">
+                        <div class="session-url">
+                            <span class="url">https://192.168.1.40:4103</span>
+                            <div class="copy-url-btn"></div>    
+                        </div>
+                        <div class="qr-btn">QR</div>
+                    </div>
+
+                    <div class="session-buttons">
+                        <button class="session-btn action-btn" id="start-screen-extend-session-btn">Start Session</button>
+                        <button class="session-btn action-btn" id="stop-screen-extend-session-btn">Stop Session</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     <div id="settings-view" class="view hidden">
         <div class="container settings-container">
 
@@ -56,7 +114,6 @@
                 </button>
                 <div class="heading">Settings</div>
             </div>
-
 
             <div class="content" id="settings-content">
 
@@ -79,16 +136,12 @@
                     </div>
                 </div>
 
-                
-
                 <div class="setting-category" id="settings-actionables">
-                    <button id="apply-settings-btn" class="settings-view-btn">Apply Settings</button>
-                    <button id="restore-settings-btn" class="settings-view-btn">Restore Defaults</button>
+                    <button id="apply-settings-btn" class="settings-view-btn action-btn">Apply Settings</button>
+                    <button id="restore-settings-btn" class="settings-view-btn action-btn">Restore Defaults</button>
                 </div>
 
-                
             </div>
-            
 
         </div>
     </div>

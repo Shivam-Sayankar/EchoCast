@@ -1,12 +1,31 @@
 
+// Views
 const homeView = document.getElementById('home-view')
 const settingsView = document.getElementById('settings-view')
+const extendScreenSetupView = document.getElementById('extend-screen-setup-view')
 
+// Home View Elements
+const extendScreenModeBtn = document.getElementById('mode-extend-screen')
+
+// Settings View Elements
 const settingsBtn = document.getElementById("settings-btn")
 const backBtnSettingsView = document.getElementById('settings-view-back-btn')
 const applySettingsBtn = document.getElementById('apply-settings-btn')
 const restoreSettingsBtn = document.getElementById('restore-settings-btn')
 
+// Extend Screen Setup View Elements
+const backBtnExtendScreenView = document.getElementById('extend-screen-setup-back-btn')
+
+// Event Listeners
+extendScreenModeBtn.addEventListener('click', () => {
+    homeView.classList.add('hidden')
+    extendScreenSetupView.classList.remove('hidden')
+})
+
+backBtnExtendScreenView.addEventListener('click', () => {
+    extendScreenSetupView.classList.add('hidden')
+    homeView.classList.remove('hidden')
+})
 
 settingsBtn.addEventListener('click', () => {
     homeView.classList.add('hidden')
