@@ -32,9 +32,9 @@
   --bg-light: hsl(0 0 15%);
   --bg-lighter: hsl(0 0 25%);
   --text: hsl(0, 0%, 90%);
-  --text-muted: hsl(0 0 65%);
+  --text-muted: hsl(0, 0%, 65%);
   --primary: hsl(199, 100%, 80%);
-  --primary-muted: hsl(199, 71%, 25%);
+  --primary-muted: hsl(199, 72%, 25%);
   --primary-light: hsl(200, 39%, 51%);
   --primary-shadow: hsla(200, 45%, 58%, 0.8);
   --action-btn-color: hsl(0, 0%, 4%);
@@ -48,6 +48,8 @@
   --settings-icon: url("./assets/images/settings-dark.svg");
   --back-icon: url("./assets/images/back-btn-dark.svg");
   --info-icon: url("./assets/images/info-dark.svg");
+  --copy-icon: url("./assets/images/copy-dark.svg");
+  --copy-hover-icon: url("./assets/images/copy-hover.svg");
 }
 
 body.light {
@@ -56,7 +58,7 @@ body.light {
   --bg-light: hsl(0 0 95%);
   --bg-lighter: hsl(0 0 85%);
   --text: hsl(0, 0%, 5%);
-  --text-muted: hsl(0 0 30%);
+  --text-muted: hsl(0, 0%, 30%);
   --primary-shadow: hsla(200, 39%, 61%, 0.9);
 
   --success: hsl(120, 92%, 35%);
@@ -68,6 +70,7 @@ body.light {
   --settings-icon: url("./assets/images/settings-light.svg");
   --back-icon: url("./assets/images/back-btn-light.svg");
   --info-icon: url("./assets/images/info-light.svg");
+  --copy-icon: url("./assets/images/copy-light.svg");
 }
 
 body {
@@ -362,6 +365,69 @@ input[type="radio"] {
   accent-color: var(--primary);
 }
 
+/* ==== ========== SCREEN MIRROR SETUP ========== ====*/
+#mirror-screen-setup-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0px;
+}
+
+.mirror-screen-content-section {
+  /* background-color: rgba(255, 255, 255, 0.2); */
+  height: calc(100% - 40px);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+
+.mirror-screen-content-section:nth-child(1) {
+  border-right: 0.5px solid var(--primary-muted);
+}
+
+.mirror-screen-content-section:nth-child(2) {
+  border-left: 0.5px solid var(--primary-muted);
+}
+
+#select-display-btn {
+  width: 100%;
+  padding: 16px;
+}
+
+.copy-url-btn {
+  display: flex;
+  height: 18px;
+
+  transition: 0.3s;
+}
+
+.copy-url-btn:active {
+  transform: scale(0.9);
+}
+
+.copy-url-icon {
+  content: var(--copy-icon);
+  transition: 0.3s;
+}
+
+.copy-url-icon:hover {
+  content: var(--copy-hover-icon);
+}
+
+#mirror-screen-session-status-text,
+#extend-screen-session-status-text {
+  margin-top: 20px;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+#mirror-screen-session-buttons,
+#extend-screen-session-buttons {
+  display: flex;
+  flex-direction: row;
+}
+
 /* ==== ========== SCREEN EXTENSION SETUP ========== ====*/
 #extend-screen-setup-content {
   display: grid;
@@ -415,6 +481,8 @@ input[type="radio"] {
 }
 
 .setup-option-group {
+  display: flex;
+  flex-direction: column;
   width: calc(100% - 40px);
   border-radius: 10px;
   background-color: var(--bg-lighter);
@@ -425,12 +493,13 @@ input[type="radio"] {
 
 .setup-option-title {
   color: var(--text);
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  margin-top: -5px;
   font-size: 1.2rem;
   text-align: center;
 }
 
-#virtual-display-resolution-input {
+select {
   appearance: base-select;
   width: 100%;
   border-radius: 10px;
@@ -441,8 +510,8 @@ input[type="radio"] {
   transition: 0.3s;
 }
 
-#virtual-display-resolution-input:hover,
-select:open#virtual-display-resolution-input {
+select:hover,
+select:open {
   border-color: var(--primary-light);
 }
 
@@ -453,6 +522,7 @@ select:open#virtual-display-resolution-input {
   color: var(--text);
   border-radius: 10px;
   margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 select::picker-icon {
@@ -470,7 +540,8 @@ option {
 #virtual-display-status-text {
   font-size: 1.1rem;
   display: flex;
-  color: var(--text);
+  flex-direction: row;
+  color: var(--text-muted);
   justify-content: center;
   align-items: center;
   gap: 10px;
@@ -513,7 +584,7 @@ option {
   color: var(--text);
   width: 100%;
   display: flex;
-  justify-content: left;
+  justify-content: space-between;
   align-items: center;
   padding: 15px;
   border-radius: 10px;
@@ -527,6 +598,10 @@ option {
   border: 2px solid var(--text-muted);
   border-radius: 10px;
   padding: 15px;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   transition-duration: 0.3s;
 }
@@ -535,12 +610,15 @@ option {
   border-color: var(--primary-shadow);
 }
 
+.status-text-display {
+  padding: 15px;
+}
+
 .session-buttons {
   background-color: var(--bg-lighter);
   display: flex;
   flex-direction: column;
   height: 100%;
-  margin: 20px 0 0 0;
   padding: 20px;
   width: calc(100% - 40px);
   border-radius: 10px;
@@ -549,12 +627,5 @@ option {
 
 .session-btn {
   height: 100%;
-  border-radius: 10px;
-  border: none;
-  font-size: 1.1rem;
-  border: 2px solid var(--primary-light);
-  background-color: var(--primary-muted);
-  color: var(--primary);
-
-  transition-duration: 0.3s;
+  width: 100%;
 }
