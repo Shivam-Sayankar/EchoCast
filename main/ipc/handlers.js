@@ -1,4 +1,5 @@
 const { ipcMain, BrowserWindow } = require('electron')
+const settingsManager = require('../settings/settingsManager')
 
 // Hosting
 ipcMain.on('start-hosting', () => {
@@ -18,3 +19,20 @@ function sendStatus(message) {
         win.webContents.send('status-update', message)
     }
 }
+
+ipcMain.handle('get-settings', () => {
+    return settingsManager.getSettings()
+})
+
+
+ipcMain.handle('update-settings', async (e, currentSettings) => {
+    // take currentSettings from renderer side
+    // then send them to main to write onto json
+    await settingsManager.updateSettings(currentSettings)
+    return true
+})
+
+ipcMain.handle('reset-settings', async () => {
+    await settingsManager.resetSettings()
+    return true
+})

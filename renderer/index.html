@@ -4,20 +4,220 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EchoCast</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <h1>E C H O</h1>
-    
-    <button id="host-btn">Start Hosting</button>
+<body class="dark">
 
-    <br><br>
+    <div id="home-view" class="view">
+        <div class="container">
 
-    <input type="text" id="ip-input" placeholder="Enter IP Address">
-    <button id="join-btn">Join Session</button>
+            <div class="title-container">
+                <div class="heading">ECHOCAST</div>
+                <div class="sub-heading">Turn any screen into a monitor</div>
+            </div>
+            
+            <div class="content">
+                <div class="content-heading">Select mode</div>
+                <div class="mode-options">
+                    <div id="mode-mirror-screen" class="mode">
+                        <div class="mode-name">Mirror/Broadcast screen</div>
+                        <div class="mode-info">
+                            <div class="mode-image" id="screen-mirror-illustration"></div>
+                            <div class="mode-description">Mirror the contents <br> of your display</div>
+                        </div>
+                    </div>
+                    <div id="mode-extend-screen" class="mode">
+                        <div class="mode-name">Extend Screen</div>
+                        <div class="mode-info">
+                            <div class="mode-image" id="screen-extend-illustration"></div>
+                            <div class="mode-description">Extend your display, <br>move the content across</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-bar">
+                    <div class="device-info">
+                        Device:<span id="device-name">&ThinSpace;HP Victus</span>
+                    </div>
+                    <button id="settings-btn">
+                        <img src="" alt="" id="settings-icon">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <br><br>
+    <div id="mirror-screen-setup-view" class="view hidden">
+        <div class="container">
+            
+            <div class="title-container">
+                <button class="back-btn" id="mirror-screen-setup-back-btn">
+                    <img src="" alt="" id="back-icon">
+                </button>
+                <div class="heading">Mirror Your Screen</div>
+                <!-- <div class="sub-heading">Use another device as a secondary monitor</div> -->
+                <button class="info-btn" id="mirror-screen-info-btn">
+                    <img src="" alt="" class="info-btn-icon">
+                </button>
+            </div>
 
-    <p>Status: <span id="status"></span></p>
+            <div class="content" id="mirror-screen-setup-content">
+                <div class="mirror-screen-content-section">
+                    <div class="content-section-heading">Choose Display to Mirror</div>
+
+                    <div class="setup-option-group">
+                        <div class="setup-option-title">Network</div>
+                        <select name="" id="mirror-screen-network-input">
+                            <option value="1920x1080">WiFi</option>
+                            <option value="1280x720">Ethernet</option>
+                        </select>
+                    </div>
+
+                    <div class="setup-option-group">
+                        <div class="setup-option-title">Select Display to Mirror</div>
+                        <button id="select-display-btn" class="action-btn">Select Display</button>
+                    </div>
+                </div>
+                <div class="mirror-screen-content-section">
+                    <div class="content-section-heading">Preview</div>
+
+                    <div class="preview-window" id="virtual-display-preview"></div>
+
+                    <div class="links-section">
+                        <div class="session-url">
+                            <span class="url">https://192.168.1.40:4103</span>
+                            <div class="copy-url-btn">
+                                <img src="" alt="" class="copy-url-icon" id="copy-mirror-screen-session-url">
+                            </div>    
+                        </div>
+                        <div class="qr-btn">QR</div>
+                    </div>
+
+                    <div class="setup-option-group status-text-display" id="mirror-screen-session-status-text">
+                        <span id="mirror-screen-session-status">Session Not Started Yet</span>
+                    </div>
+
+                    <div class="session-buttons" id="mirror-screen-session-buttons">
+                        <button class="session-btn action-btn" id="start-screen-extend-session-btn">Start Session</button>
+                        <button class="session-btn action-btn" id="stop-screen-extend-session-btn">Stop Session</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="extend-screen-setup-view" class="view hidden">
+        <div class="container">
+            
+            <div class="title-container">
+                <button class="back-btn" id="extend-screen-setup-back-btn">
+                    <img src="" alt="" id="back-icon">
+                </button>
+                <div class="heading">Extend Your Screen</div>
+                <!-- <div class="sub-heading">Use another device as a secondary monitor</div> -->
+                <button class="info-btn" id="extend-screen-info-btn">
+                    <img src="" alt="" class="info-btn-icon">
+                </button>
+            </div>
+
+            <div class="content" id="extend-screen-setup-content">
+                <div class="extend-screen-content-section">
+                    <div class="content-section-heading">Setup Virtual Display</div>
+
+                    <div class="setup-option-group">
+                        <div class="setup-option-title">Network</div>
+                        <select name="" id="extend-screen-network-input">
+                            <option value="1920x1080">WiFi</option>
+                            <option value="1280x720">Ethernet</option>
+                        </select>
+                    </div>
+
+                    <div class="setup-option-group">
+                        <div class="setup-option-title">Resolution</div>
+                        <select name="" id="virtual-display-resolution-input">
+                            <option value="1920x1080">1920x1080</option>
+                            <option value="1280x720">1280x720</option>
+                        </select>
+                    </div>
+
+                    <div class="setup-option-group" id="virtual-display-status-text">
+                        <span>Status:</span>
+                        <span id="virtual-display-status">Virtual Display Not Created</span>
+                    </div>
+
+                    <div class="setup-option-group">
+                        <button id="create-virtual-display-btn" class="action-btn">Create Virtual Display</button>
+                    </div>
+                </div>
+                <div class="extend-screen-content-section">
+                    <div class="content-section-heading">Preview</div>
+
+                    <div class="preview-window" id="virtual-display-preview"></div>
+
+                    <div class="links-section">
+                        <div class="session-url">
+                            <span class="url">https://192.168.1.40:4103</span>
+                            <div class="copy-url-btn">
+                                <img src="" alt="" class="copy-url-icon" id="copy-extend-screen-session-url">
+                            </div>    
+                        </div>
+                        <div class="qr-btn">QR</div>
+                    </div>
+
+                    <div class="setup-option-group status-text-display" id="extend-screen-session-status-text">
+                        <span id="extend-screen-session-status">Session Not Started Yet</span>
+                    </div>
+
+                    <div class="session-buttons" id="extend-screen-session-buttons">
+                        <button class="session-btn action-btn" id="start-screen-extend-session-btn">Start Session</button>
+                        <button class="session-btn action-btn" id="stop-screen-extend-session-btn">Stop Session</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="settings-view" class="view hidden">
+        <div class="container settings-container">
+
+            <div class="title-container">
+                <button class="back-btn" id="settings-view-back-btn">
+                    <img src="" alt="" id="back-icon">
+                </button>
+                <div class="heading">Settings</div>
+            </div>
+
+            <div class="content" id="settings-content">
+
+                <div class="setting-category">
+                    <div class="settings-category-title">Appearance</div>
+                    <hr class="setting-cat-hr">
+                    <div class="settings-options">
+                        <label for="" class="setting-label">Theme</label>
+
+                        <div class="radio-group">
+                            <input type="radio" name="theme" id="dark" value="dark" checked>
+                            <label for="dark">Dark</label>
+                        </div>
+
+                        <div class="radio-group">
+                            <input type="radio" name="theme" id="light" value="light">
+                            <label for="light">Light</label>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="setting-category" id="settings-actionables">
+                    <button id="apply-settings-btn" class="settings-view-btn action-btn">Apply Settings</button>
+                    <button id="restore-settings-btn" class="settings-view-btn action-btn">Restore Defaults</button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
 
     <script src="app.js"></script>
 </body>
