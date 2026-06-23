@@ -1,0 +1,210 @@
+@font-face {
+  font-family: "Inter";
+  src: url("./assets/fonts/inter/Inter-VariableFont.ttf")
+    format("truetype-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("./assets/fonts/inter/Inter-Italic-VariableFont.ttf")
+    format("truetype-variations");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: block;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", monospace;
+  letter-spacing: 0.5px;
+  user-select: none;
+}
+
+:root {
+  --bg-dark: hsl(0 0 5%);
+  --bg: hsl(0 0 10%);
+  --bg-light: hsl(0 0 15%);
+  --bg-lighter: hsl(0 0 25%);
+  --text: hsl(0, 0%, 90%);
+  --text-muted: hsl(0, 0%, 65%);
+  --primary: hsl(199, 100%, 80%);
+  --primary-muted: hsl(199, 72%, 25%);
+  --primary-light: hsl(200, 39%, 51%);
+  --primary-shadow: hsla(200, 45%, 58%, 0.8);
+  --action-btn-color: hsl(0, 0%, 4%);
+
+  --success: hsl(120, 64%, 63%);
+  --processing: hsl(60, 56%, 49%);
+  --warning: hsl(0, 61%, 57%);
+
+  --screen-mirror-illustration: url("./assets/images/screen-mirror-dark.svg");
+  --screen-extend-illustration: url("./assets/images/screen-extend-dark.svg");
+  --settings-icon: url("./assets/images/settings-dark.svg");
+  --back-icon: url("./assets/images/back-btn-dark.svg");
+  --info-icon: url("./assets/images/info-dark.svg");
+  --copy-icon: url("./assets/images/copy-dark.svg");
+  --copy-hover-icon: url("./assets/images/copy-hover.svg");
+}
+
+body.light {
+  --bg-dark: hsl(0 0 85%);
+  --bg: hsl(0 0 90%);
+  --bg-light: hsl(0 0 95%);
+  --bg-lighter: hsl(0 0 85%);
+  --text: hsl(0, 0%, 5%);
+  --text-muted: hsl(0, 0%, 30%);
+  --primary: hsl(199, 100%, 40%);
+  --primary-shadow: hsla(200, 39%, 61%, 0.9);
+
+  --success: hsl(120, 92%, 35%);
+  --processing: hsl(56, 100%, 33%);
+  --warning: hsl(0, 61%, 57%);
+
+  --screen-mirror-illustration: url("./assets/images/screen-mirror-light.svg");
+  --screen-extend-illustration: url("./assets/images/screen-extend-light.svg");
+  --settings-icon: url("./assets/images/settings-light.svg");
+  --back-icon: url("./assets/images/back-btn-light.svg");
+  --info-icon: url("./assets/images/info-light.svg");
+  --copy-icon: url("./assets/images/copy-light.svg");
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--bg-light);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hidden {
+  display: none;
+  opacity: 0;
+}
+
+.success {
+  color: var(--success);
+}
+
+.processing {
+  color: var(--processing);
+}
+
+.warning {
+  color: var(--warning);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: calc(100vw - 50px);
+  margin: 20px;
+}
+
+.left-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-logo {
+  font-size: 1.8rem;
+  font-weight: 900;
+}
+
+#connection-status {
+  padding-left: 10px;
+  border-left: 2px solid var(--primary-muted);
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.info-btn {
+  display: flex;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background-color: var(--bg-light);
+
+  transition: 0.3s;
+}
+
+.info-btn:hover {
+  box-shadow: 0 2px 15px var(--primary-shadow);
+}
+
+.info-btn:active {
+  transform: scale(0.9);
+}
+
+.info-btn-icon {
+  content: var(--info-icon);
+  width: 25px;
+  height: 100%;
+}
+
+.main {
+  width: calc(100% - 50px);
+  background-color: var(--bg-dark);
+  border-radius: 10px;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#placeholder {
+  color: var(--text-muted);
+  padding: 50px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.footer {
+  width: calc(100vw - 50px);
+  margin: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-items: end;
+}
+
+.footer > button {
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 20px 30px;
+  border-radius: 10px;
+  border: none;
+  background: var(--bg-lighter);
+  color: var(--text);
+  transition: 0.3s;
+}
+
+#fullscreen-btn:hover {
+  background-color: var(--primary);
+  color: var(--bg-light);
+}
+
+#reconnect-btn:hover {
+  background-color: var(--success);
+  color: var(--bg-light);
+}
+
+#disconnect-btn:hover {
+  background-color: var(--warning);
+  color: var(--bg-light);
+}
+
+.footer > button:active {
+  transform: scale(0.97);
+}
