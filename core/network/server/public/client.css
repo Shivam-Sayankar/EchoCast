@@ -42,13 +42,7 @@
   --processing: hsl(60, 56%, 49%);
   --warning: hsl(0, 61%, 57%);
 
-  --screen-mirror-illustration: url("./assets/images/screen-mirror-dark.svg");
-  --screen-extend-illustration: url("./assets/images/screen-extend-dark.svg");
-  --settings-icon: url("./assets/images/settings-dark.svg");
-  --back-icon: url("./assets/images/back-btn-dark.svg");
   --info-icon: url("./assets/images/info-dark.svg");
-  --copy-icon: url("./assets/images/copy-dark.svg");
-  --copy-hover-icon: url("./assets/images/copy-hover.svg");
 }
 
 body.light {
@@ -65,12 +59,7 @@ body.light {
   --processing: hsl(56, 100%, 33%);
   --warning: hsl(0, 61%, 57%);
 
-  --screen-mirror-illustration: url("./assets/images/screen-mirror-light.svg");
-  --screen-extend-illustration: url("./assets/images/screen-extend-light.svg");
-  --settings-icon: url("./assets/images/settings-light.svg");
-  --back-icon: url("./assets/images/back-btn-light.svg");
   --info-icon: url("./assets/images/info-light.svg");
-  --copy-icon: url("./assets/images/copy-light.svg");
 }
 
 body {

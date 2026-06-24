@@ -2,6 +2,7 @@ const http = require('node:http')
 const path = require('node:path')
 const fs = require('node:fs/promises')
 const { PORT } = require('../config/networkConfig')
+const { attachWebSocketServer } = require('./webSocketServer')
 
 let server = null
 let sessionURL = null
@@ -32,19 +33,13 @@ async function startServer(selectedInterface) {
             }
 
             else {
-                filePath = path.join(
-                    __dirname,
-                    './public',
-                    req.url
-                )
+                filePath = path.join(__dirname, './public', req.url)
             }
 
             const fileExtension = path.extname(filePath)
             const contentType = mimeTypes[fileExtension] || 'application/octet-stream'
 
             const file = await fs.readFile(filePath)
-
-            console.log(fileExtension, contentType)
 
             res.writeHead(200, {
                 'content-type': contentType
@@ -57,6 +52,10 @@ async function startServer(selectedInterface) {
         }
 
     })
+
+
+    // Attaching WebSocket
+    attachWebSocketServer(server)
 
     const HOST = selectedInterface.ip
 
